@@ -1,3 +1,36 @@
+# Why this fork?
+
+We created this fork to get control about the design of the compose
+files and adapt them to our needs. We do not belief to benefit the
+community with them, so we do net send any Pull Requests to the
+upstream. With our changes we would rather ensure a homogeneous Docker
+app design and namespaces throughout our own projects. If you got
+remarks or questions for us, 
+[let us know](https://github.com/orgs/PTB-PSt1/people).
+
+## Changes we made
+
+For the time being we inserted a slightly enhanced
+[docker-compose.yml](./docker-compose.yml) in the root folder for the
+current lts-mysql-tomcat XWiki image from
+[Docker Hub](https://hub.docker.com/_/xwiki) and prepared a copy of the
+[xwiki.cnf](./xwiki.cnf/xwiki.cnf) mysql configuration files and an
+*.env-file* for
+[additional configuration options](https://github.com/PTB-PSt1/docker-xwiki#new-configuration-options).
+
+### New Configuration Options
+
+In addition to the
+[upstream configuration options](https://github.com/PTB-PSt1/docker-xwiki#configuration-options)
+the following environment variables can be passed directly in the
+[docker-compose.yml](./docker-compose.yml) or via the
+[.env-file](./.env), where we added them with defaults as follows:
+
+-   `DB_HOST=xwiki_db`: The name of the database container.
+-   `COMPOSE_PROJECT_NAME=xwiki`: the
+    [prefix for service- and volume names](https://docs.docker.com/compose/reference/envvars/#compose_project_name)
+    unless containers are explicitly named differently.
+
 # What is XWiki
 
 [XWiki](https://xwiki.org/) is a free wiki software platform written in Java with a design emphasis on extensibility. XWiki is an enterprise wiki. It includes WYSIWYG editing, OpenDocument based document import/export, semantic annotations and tagging, and advanced permissions management.
